@@ -1,11 +1,11 @@
 package com.tructran.baseandroidapp.presentation.home
 
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.util.Log
 import com.tructran.baseandroidapp.R
 import com.tructran.baseandroidapp.presentation.base.BaseActivity
 import com.tructran.baseandroidapp.utils.observeNonNull
+import com.tructran.baseandroidapp.utils.timber.logD
+import com.tructran.baseandroidapp.utils.timber.logThrowable
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : BaseActivity() {
@@ -19,7 +19,13 @@ class HomeActivity : BaseActivity() {
 
         mHomeVM = getViewModel()
 
-        Log.d("Test", "ViewModel: $mHomeVM")
+        logD("TestHome", "VM: $mHomeVM")
+
+        try {
+            exception1()
+        } catch (e: Exception) {
+            logThrowable("TestThrowable", e)
+        }
 
         observe()
 
@@ -32,5 +38,14 @@ class HomeActivity : BaseActivity() {
                 tv_count.text = count.toString()
             }
         }
+    }
+
+    private fun exception1() {
+        exception2()
+    }
+
+    private fun exception2() {
+        val a: String? = null
+        a!!.length
     }
 }

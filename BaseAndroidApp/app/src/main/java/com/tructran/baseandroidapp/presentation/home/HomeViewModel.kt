@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.tructran.baseandroidapp.presentation.base.BaseViewModel
 import com.tructran.baseandroidapp.utils.launchWithIO
+import com.tructran.baseandroidapp.utils.timber.logD
 import kotlinx.coroutines.delay
 
 /**
@@ -24,7 +25,7 @@ class HomeViewModel : BaseViewModel() {
             repeat(10) {
                 count++
                 _liveCount.postValue(count)
-                Log.d("Test", "Count: $count")
+                logD("Test", "Count: $count")
                 delay(1000)
             }
         }
