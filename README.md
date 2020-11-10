@@ -1,2 +1,2 @@
 # BaseAndroidApp
-Some base implementation for an Android App
+Some base implementation for an Android
